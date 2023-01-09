@@ -17,6 +17,7 @@
   "bugs": "",
   "homepage": "https://github.com/fullstackdassi1995/hw5.1.23.git#readme",
   "dependencies": {
+    "bootstrap": "^5.3.0-alpha1",
     "config": "^3.3.8",
     "cors": "^2.8.5",
     "express": "^4.18.2",

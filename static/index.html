@@ -5,11 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+<style>
+.component {
+  color: var(--bs-gray-800);
+  background-color: var(--bs-gray-100);
+  border: 1px solid var(--bs-gray-200);
+  border-radius: .25rem;
+}
 
- <p> <button onclick="get_me()">See my test...</button></p>
- <table>
+.component-header {
+  color: var(--bs-purple);
+}
+body {
+    margin: 20px;
+  --bs-body-font-family: var(--bs-font-monospace);
+  --bs-body-line-height: 1.4;
+  --bs-body-bg: var(--bs-gray-100);
+}
+
+
+</style>
+</head>
+<body style="--bs-body-color: #333;">
+
+ <p> <button onclick="get_me()"  class="btn btn-outline-secondary" >See my test...</button></p>
+ <table class="table table-success table-striped">
     <thead>
         <tr>
             <th>ID</th>
@@ -29,25 +53,25 @@
  <hr/>
  <h1>insert</h1>
  <!-- <p>UPDATEDAT: <input type="time" id="txt_updateAt"> </p> -->
- <p>NAME: <input type="text" id="txt_name"> </p>
+ <p>NAME: <input type="text" class="form-control" id="txt_name"> </p>
  <!-- <p>DATE: <input type="time" id="txt_date"> </p> -->
- <p>COURSELD: <input type="number" id="txt_courseld"> </p>
- <p><button onclick="post_to_test()">insert to my test</button> </p>
+ <p>COURSELD: <input type="number" class="form-control" id="txt_courseld"> </p>
+ <p><button onclick="post_to_test()"  class="btn btn-outline-secondary">insert to my test</button> </p>
 <hr/>
 
 <h1>update</h1>
-<p>ID: <input type="number" id="txt_id_up"> </p>
-<p>UPDATEDAT: <input type="time" id="txt_updateAt_up"> </p>
-<p>NAME: <input type="text" id="txt_name_up"> </p>
-<p>DATE: <input type="time" id="txt_date_up"> </p>
-<p>COURSELD: <input type="number" id="txt_courseld_up"> </p>
-<p><button onclick="update_to_test()">update my test</button> </p>
+<p>ID: <input type="number" id="txt_id_up" class="form-control"> </p>
+<p>UPDATEDAT: <input type="time" id="txt_updateAt_up" class="form-control"> </p>
+<p>NAME: <input type="text" id="txt_name_up" class="form-control"> </p>
+<p>DATE: <input type="time" id="txt_date_up" class="form-control"> </p>
+<p>COURSELD: <input type="number" id="txt_courseld_up" class="form-control"> </p>
+<p><button onclick="update_to_test()"  class="btn btn-outline-secondary">update my test</button> </p>
 
 
 
 <h1>delete</h1>
-<p>ID: <input type="number" id="txt_id"> </p>
-<p> <button onclick="delete_id()">DELETE</button> </p>
+<p>ID: <input type="number" id="txt_id" class="form-control"> </p>
+<p> <button onclick="delete_id()"  class="btn btn-outline-secondary" >DELETE</button> </p>
 
 
 

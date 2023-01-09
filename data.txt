@@ -1,0 +1,18 @@
+-- Table: public.test
+
+-- DROP TABLE IF EXISTS public.test;
+
+CREATE TABLE IF NOT EXISTS public.test
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    "updatedAt" timestamp with time zone[],
+    name text COLLATE pg_catalog."default",
+    date time with time zone[],
+    courseld integer,
+    CONSTRAINT "unique" UNIQUE (name)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.test
+    OWNER to postgres;
