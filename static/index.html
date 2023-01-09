@@ -61,9 +61,7 @@ body {
 
 <h1>update</h1>
 <p>ID: <input type="number" id="txt_id_up" class="form-control"> </p>
-<p>UPDATEDAT: <input type="time" id="txt_updateAt_up" class="form-control"> </p>
 <p>NAME: <input type="text" id="txt_name_up" class="form-control"> </p>
-<p>DATE: <input type="time" id="txt_date_up" class="form-control"> </p>
 <p>COURSELD: <input type="number" id="txt_courseld_up" class="form-control"> </p>
 <p><button onclick="update_to_test()"  class="btn btn-outline-secondary">update my test</button> </p>
 <hr/>
@@ -96,8 +94,8 @@ function get_me(){
 async function post_to_test(){
     const new_test1 = {
         name: document.getElementById('txt_name').value,
-       // date: new Date(),
-        courseld: document.getElementById('txt_courseld').value
+        date: new Date(),
+        courseid: document.getElementById('txt_courseld').value
     }
     const result = await fetch('/test', {
                 method: 'POST',
@@ -115,6 +113,8 @@ async function update_to_test(){
     let id =document.getElementById('txt_id_up').value
     const new_test1 = {
         name: document.getElementById('txt_name_up').value,
+        updatedat : new Date(),
+        //date : 
         courseid: Number( document.getElementById('txt_courseld_up').value)
     }
     await fetch(`/test/${id}`, {
