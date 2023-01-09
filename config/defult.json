@@ -4,6 +4,6 @@
         "user": "postgres",
         "password": "admin",
         "database": "postgres",
-        "version": 13
+        "version": 15
     }
 }

@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,12 +15,13 @@
   "author": "",
   "license": "ISC",
   "bugs": "",
-  "homepage": "https://github.com/fullstack180822/29.12.2022#readme",
+  "homepage": "https://github.com/fullstackdassi1995/hw5.1.23.git#readme",
   "dependencies": {
+    "config": "^3.3.8",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "knex": "^2.3.0",
-    "pg": "^8.8.0"
+    "knex": "^2.4.0",
+    "pg": "^8.8.0",
+    "postgres": "^3.3.3"
   }
 }
-
