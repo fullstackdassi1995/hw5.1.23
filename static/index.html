@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+ <p> <button onclick="get_me()">See my test...</button></p>
+ <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>UPDATEDAT</th>
+            <th>NAME</th>
+            <th>DATE</th>
+            <th>COURSELD</th>
+        </tr>
+    </thead>
+
+    <tbody id="data">
+
+    </tbody>
+ </table>
+    
+
+ <hr/>
+ <h1>insert</h1>
+ <!-- <p>UPDATEDAT: <input type="time" id="txt_updateAt"> </p> -->
+ <p>NAME: <input type="text" id="txt_name"> </p>
+ <!-- <p>DATE: <input type="time" id="txt_date"> </p> -->
+ <p>COURSELD: <input type="number" id="txt_courseld"> </p>
+ <p><button onclick="post_to_test()">insert to my test</button> </p>
+<hr/>
+
+<h1>update</h1>
+<p>ID: <input type="number" id="txt_id_up"> </p>
+<p>UPDATEDAT: <input type="time" id="txt_updateAt_up"> </p>
+<p>NAME: <input type="text" id="txt_name_up"> </p>
+<p>DATE: <input type="time" id="txt_date_up"> </p>
+<p>COURSELD: <input type="number" id="txt_courseld_up"> </p>
+<p><button onclick="update_to_test()">update my test</button> </p>
+
+
+
+<h1>delete</h1>
+<p>ID: <input type="number" id="txt_id"> </p>
+<p> <button onclick="delete_id()">DELETE</button> </p>
+
+
+
+<script>
+function get_me(){
+    fetch('http://localhost:8080/test').then(response => response.json()).
+    then(json => {
+        console.log(json.test);
+        let td = ""
+        json.test.forEach(e => {
+            td += `<tr><td>${e.id}</td>
+                   <td>${e.updatedAt}</td>
+                    <td>${e.name}</td>
+                    <td>${e.date}</td>
+                    <td>${e.courseld}</td></tr>`
+                document.getElementById('data').innerHTML = td                
+        });
+    })
+ //alert('got it')
+}
+
+async function post_to_test(){
+    const new_test1 = {
+        name: document.getElementById('txt_name').value,
+       // date: new Date(),
+        courseld: document.getElementById('txt_courseld').value
+    }
+    const result = await fetch('/test', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json',
+                },
+        body: JSON.stringify(new_test1)
+    })
+    get_me()
+}
+
+
+async function update_to_test(){
+    let id = document.getElementById('txt_id_up').value
+    const new_test1 = {
+        name: document.getElementById('txt_name').value,
+        courseld: document.getElementById('txt_courseld').value
+    }
+    await fetch(`/test/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify(new_test1)
+    })
+    get_me()
+}
+
+
+async function delete_id(){
+    const id = document.getElementById('txt_id').value
+            await fetch(`/test/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json'
+                }}).then()
+    get_me()
+}
+
+</script>
+
+
+</body>
+</html>
