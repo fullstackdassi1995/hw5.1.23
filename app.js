@@ -59,7 +59,7 @@ app.get('/test/:id', async (req, resp) => {
 
 function is_valid_test(obj) {
     return  obj.hasOwnProperty('name') && 
-        obj.hasOwnProperty('courseld') 
+        obj.hasOwnProperty('courseid') 
 }
 
 // ADD

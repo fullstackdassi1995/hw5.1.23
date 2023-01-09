@@ -66,7 +66,7 @@ body {
 <p>DATE: <input type="time" id="txt_date_up" class="form-control"> </p>
 <p>COURSELD: <input type="number" id="txt_courseld_up" class="form-control"> </p>
 <p><button onclick="update_to_test()"  class="btn btn-outline-secondary">update my test</button> </p>
-
+<hr/>
 
 
 <h1>delete</h1>
@@ -83,10 +83,10 @@ function get_me(){
         let td = ""
         json.test.forEach(e => {
             td += `<tr><td>${e.id}</td>
-                   <td>${e.updatedAt}</td>
+                   <td>${e.updatedat}</td>
                     <td>${e.name}</td>
                     <td>${e.date}</td>
-                    <td>${e.courseld}</td></tr>`
+                    <td>${e.courseid}</td></tr>`
                 document.getElementById('data').innerHTML = td                
         });
     })
@@ -112,10 +112,10 @@ async function post_to_test(){
 
 
 async function update_to_test(){
-    let id = document.getElementById('txt_id_up').value
+    let id =document.getElementById('txt_id_up').value
     const new_test1 = {
-        name: document.getElementById('txt_name').value,
-        courseld: document.getElementById('txt_courseld').value
+        name: document.getElementById('txt_name_up').value,
+        courseid: Number( document.getElementById('txt_courseld_up').value)
     }
     await fetch(`/test/${id}`, {
         method: 'PUT',
