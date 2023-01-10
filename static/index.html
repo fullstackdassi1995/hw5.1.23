@@ -48,8 +48,11 @@ body {
 
     </tbody>
  </table>
-    
 
+ <hr/>
+  <h1>Get by ID</h1>  
+  <p>ID:<input type="number" class="form-control" id="txt_id_id"> </p>
+ <p><button onclick="get_by_id()" class="btn btn-outline-secondary">See by ID</button></p>
  <hr/>
  <h1>insert</h1>
  <!-- <p>UPDATEDAT: <input type="time" id="txt_updateAt"> </p> -->
@@ -89,6 +92,22 @@ function get_me(){
         });
     })
  //alert('got it')
+}
+
+function get_by_id(){
+    let id =document.getElementById('txt_id_id').value
+    fetch(`http://localhost:8080/test/${id}`).then(response => response.json()).
+    then(json => {
+        console.log(json);
+        let td = ""
+            td = `<tr><td>${json.id}</td>
+            <td>${json.updatedat}</td>
+            <td>${json.name}</td>
+            <td>${json.date}</td>
+            <td>${json.courseid}</td></tr>`
+        document.getElementById('data').innerHTML = td                
+        
+    })
 }
 
 async function post_to_test(){

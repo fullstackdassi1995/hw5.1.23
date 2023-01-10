@@ -49,8 +49,8 @@ app.get('/test', async (req, resp) => {
 
 app.get('/test/:id', async (req, resp) => {
     try {
-        const test1 = await connectedKnex('test').select('*').where('id', req.params.id).first()
-        resp.status(200).json(test1)
+        const test = await connectedKnex('test').select('*').where('id', req.params.id).first()
+        resp.status(200).json(test)
     }
     catch (err) {
         resp.status(500).json({ "error": err.message })
